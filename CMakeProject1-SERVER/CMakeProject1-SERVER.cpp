@@ -3,10 +3,10 @@
 #include <boost/asio.hpp>
 #include "CMakeProject1-SERVER.h"
 
-using namespace std;
+using namespace boost::asio;
 
 int main()
 {
-	cout << "Hello CMak." << endl;
+	std::cout << "Hello CMake." << std::endl;
 	return 0;
 }
