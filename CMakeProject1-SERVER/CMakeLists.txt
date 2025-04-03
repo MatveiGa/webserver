@@ -11,7 +11,7 @@ find_package(SQLite3 REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 add_executable(CMakeProject1-SERVER
-    CMakeProject1-SERVER.cpp
+    "src/main.cpp"
 )
 
 target_link_libraries(CMakeProject1-SERVER
