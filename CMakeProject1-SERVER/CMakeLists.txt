@@ -10,11 +10,13 @@ find_package(Boost REQUIRED COMPONENTS system)
 find_package(SQLite3 REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
-add_executable(CMakeProject1-SERVER
-    "src/main.cpp"
+add_executable(WebServer
+    src/main.cpp
+    src/server/server.cpp
+    src/server/session.cpp
 )
-
-target_link_libraries(CMakeProject1-SERVER
+target_include_directories(WebServer PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(WebServer
     PRIVATE
         Boost::system
         SQLite::SQLite3
