@@ -23,13 +23,14 @@ void Session::process_request(size_t length) {
 }
 void Session::send_response() {
 	auto self(shared_from_this());
-	std::string response =
+	auto response =std::make_shared<std::string>(
 		"HTTP/1.1 200 OK\r\n"
 		"Content-Length: 13\r\n"
 		"\r\n"
-		"Hello, World!";
-	boost::asio::async_write(socket_, boost::asio::buffer(response),
-		[this, self](boost::system::error_code ec, std::size_t) {
+		"Hello, World!");
+
+	async_write(socket_, boost::asio::buffer(*response),
+		[this, self ,response](boost::system::error_code ec, std::size_t) {
 		if (!ec) {
 			socket_.close();
 			}
